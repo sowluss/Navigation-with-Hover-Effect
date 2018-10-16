@@ -1,0 +1,84 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Gudea', sans-serif;
+  overflow: hidden;
+}
+.toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  min-width: 40px;
+  height: 40px;
+  background: #021c1e;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: .5s;
+  z-index: 10;
+  border: 1px solid #fff;
+  padding: 0 20px;
+}
+.toggle::before {
+  content: 'Menu';
+  color: #fff;
+  line-height: 40px;
+}
+.toggle.active::before {
+  content: 'Close';
+  color: #fff;
+  line-height: 40px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh;
+  background: #021c1e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+.sidebar.active {
+  left: 0;
+}
+ul {
+  position: relative;
+}
+ul li {
+  list-style: none;
+  text-align: center;
+}
+ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 5px;
+  text-transform: uppercase;
+  color: #6fb98f;
+  font-size: 2em;
+  letter-spacing: 1px;
+  font-weight: 700;
+  transition: .5s;
+}
+ul li a:hover {
+  color: #2c7873;
+}
+ul li a::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: .5s;
+  font-size: 4em;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+  font-family: initial;
+}
+ul li a:hover:before {
+  opacity: .1;
+  top: 50%;
+}
